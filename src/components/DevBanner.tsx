@@ -1,8 +1,8 @@
 export function DevBanner() {
   return (
     <div className="dev-banner">
-      <span>🧪 Browser emulator</span>
-      <span>Real Telegram: open bot in Telegram Desktop</span>
+      <span>🧪 Ludus emulator — Telegram WebApp mocked</span>
+      <span>API + saves active · use Telegram Desktop for live bot</span>
     </div>
   );
 }

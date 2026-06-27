@@ -15,14 +15,20 @@ body {
 }
 
 .app {
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
   padding: 1rem 1rem 2rem;
 }
 
+.loading-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
 .hero {
-  text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .eyebrow {
@@ -39,9 +45,8 @@ body {
 }
 
 .subtitle {
-  margin: 0;
+  margin: 0 0 0.75rem;
   color: #c8e8b8;
-  font-size: 0.95rem;
 }
 
 .dev-banner {
@@ -56,143 +61,217 @@ body {
   font-size: 0.78rem;
 }
 
-.tap-arena {
+.resource-bar {
   display: grid;
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
 }
 
-.stats-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.resource-bar span {
+  padding: 0.45rem 0.35rem;
+  border-radius: 0.65rem;
+  background: rgba(10, 30, 18, 0.8);
+  border: 1px solid rgba(127, 223, 79, 0.2);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.error-banner,
+.incident-banner {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.8rem;
+}
+
+.error-banner {
+  background: rgba(120, 20, 20, 0.5);
+  border: 1px solid #ff6b6b;
+}
+
+.incident-banner {
+  display: flex;
+  justify-content: space-between;
   gap: 0.75rem;
+  align-items: center;
+  background: rgba(120, 90, 10, 0.45);
+  border: 1px solid #ffd166;
 }
 
-.stat {
-  padding: 0.8rem;
-  border-radius: 1rem;
-  background: rgba(10, 30, 18, 0.75);
-  border: 1px solid rgba(127, 223, 79, 0.25);
+.incident-banner p {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
 }
 
-.stat .label {
-  display: block;
-  font-size: 0.75rem;
-  color: #9fd884;
+.quick-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.stat .value {
-  font-size: 1.35rem;
+.quick-actions button,
+.room-actions button,
+.build-list button,
+.mission-card button,
+.primary-btn,
+.nav-tabs button {
+  border: 1px solid rgba(127, 223, 79, 0.35);
+  background: rgba(20, 50, 28, 0.9);
+  color: inherit;
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.primary-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.7rem;
   font-weight: 700;
 }
 
-.frog-button {
-  position: relative;
-  border: 0;
-  border-radius: 999px;
-  min-height: 220px;
-  background: radial-gradient(circle at 30% 20%, #8dff62, #2f8d2a 55%, #1a4d18 100%);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-  transition: transform 0.12s ease;
-}
-
-.frog-button:active,
-.frog-button.pulse {
-  transform: scale(0.97);
-}
-
-.frog-button.disabled {
-  filter: grayscale(0.35);
+button:disabled {
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-.frog-emoji {
-  font-size: 5rem;
+.nav-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
 }
 
-.frog-crown {
-  position: absolute;
-  top: 2.2rem;
-  right: calc(50% - 3.2rem);
-  font-size: 2rem;
+.nav-tabs button.active {
+  background: #2f6b1f;
 }
 
-.tap-label {
-  display: block;
-  margin-top: 0.35rem;
+.panel {
+  padding: 0.9rem;
+  border-radius: 1rem;
+  background: rgba(8, 24, 14, 0.82);
+  border: 1px solid rgba(127, 223, 79, 0.2);
+}
+
+.panel h2,
+.panel h3 {
+  margin: 0 0 0.35rem;
+}
+
+.panel-copy {
+  margin: 0 0 0.85rem;
+  color: #b7d9a8;
+  font-size: 0.88rem;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.ludus-strip {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.room-card {
+  padding: 0.75rem;
+  border-radius: 0.85rem;
+  background: rgba(12, 34, 20, 0.9);
+  border: 1px solid rgba(127, 223, 79, 0.18);
+}
+
+.room-card.empty {
+  border-style: dashed;
+}
+
+.room-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.room-level {
+  margin-left: auto;
+  color: #9fd884;
+  font-size: 0.82rem;
+}
+
+.room-assign {
+  margin: 0.45rem 0;
+  color: #c8e8b8;
+  font-size: 0.85rem;
+}
+
+.room-actions {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.build-list {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.roster-list,
+.mission-list,
+.active-expeditions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.gladiator-card,
+.mission-card,
+.arena-card {
+  padding: 0.75rem;
+  border-radius: 0.85rem;
+  background: rgba(12, 34, 20, 0.9);
+  border: 1px solid rgba(127, 223, 79, 0.18);
+}
+
+.gladiator-top {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.gladiator-emoji {
+  font-size: 1.8rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  color: #b7d9a8;
+}
+
+.rarity-maximus {
+  box-shadow: inset 0 0 0 1px #ffd166;
+}
+
+.rarity-legend {
+  box-shadow: inset 0 0 0 1px #c77dff;
+}
+
+.arena-stage {
   font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.energy-bar {
-  height: 10px;
+.boss-bar {
+  height: 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
-.energy-fill {
+.boss-fill {
   height: 100%;
-  background: linear-gradient(90deg, #ffe66d, #7dff4f);
-  transition: width 0.15s ease;
-}
-
-.meta {
-  margin: 0;
-  text-align: center;
-  color: #b7d9a8;
-  font-size: 0.85rem;
-}
-
-.upgrade-panel h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.1rem;
-}
-
-.upgrade-list {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.upgrade-card {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  width: 100%;
-  padding: 0.85rem;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(127, 223, 79, 0.25);
-  background: rgba(10, 30, 18, 0.75);
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.upgrade-card.locked {
-  opacity: 0.55;
-}
-
-.upgrade-card p {
-  margin: 0.2rem 0 0;
-  font-size: 0.82rem;
-  color: #b7d9a8;
-}
-
-.upgrade-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-  font-size: 0.82rem;
-  color: #9fd884;
-  white-space: nowrap;
-}
-
-.footer {
-  margin-top: 1.5rem;
-  text-align: center;
-  color: #89b878;
-  font-size: 0.8rem;
+  background: linear-gradient(90deg, #ff6b6b, #ffd166);
 }
